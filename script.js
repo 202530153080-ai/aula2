@@ -16,7 +16,18 @@ async function salvar() {
     const resposta = await fetch(
         URL + "/rest/v1/produtos",
         {
-@@ -25,13 +31,56 @@
+            method: "POST",
+
+            headers: {
+                "apikey": KEY,
+                "Authorization": "Bearer " + KEY,
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                nome: nome
+            })
+        }
     );
 
     if (resposta.ok) {
@@ -25,8 +36,6 @@ async function salvar() {
             "Produto salvo!";
 
         document.getElementById("nome").value = "";
-    }
-    else {
 
         listarProdutos();
 
